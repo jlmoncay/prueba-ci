@@ -4,19 +4,16 @@ pipeline {
     stage('build') {
       steps {
         echo "build stage"
-        sh 'whoami'
       }
     }
     stage('test') {
         steps {
             echo "test stage"
-            sh 'pwd'
         }
     }
     stage('deploy') {
         steps {
             echo "deploy stage"
-            sh 'hostname -I'
         }
     }
   }
