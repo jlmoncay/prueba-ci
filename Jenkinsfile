@@ -1,25 +1,28 @@
 pipeline {
   agent none
+   environment {
+       
+        IDF_PATH = "/var/lib/jenkins/workspace/prueba-ci/esp/esp-idf"
+        
+    }
   stages {
     stage('build') {
       agent {label 'controller'}
       steps {
         echo "build stage"
-        sh 'whoami'
+        sh ". $IDF_PATH/export.sh"
+        sh 'idf.py set-target esp32'
+        sh 'idf.py build'
       }
     }
     stage('test') {
-        agent {label 'controller'}
         steps {
             echo "test stage"
-            sh 'pwd'
         }
     }
     stage('deploy') {
-        agent {label 'controller'}
         steps {
             echo "deploy stage"
-            sh 'hostname -I'
         }
     }
   }
