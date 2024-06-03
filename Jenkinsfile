@@ -9,7 +9,7 @@ pipeline {
       agent {label 'controller'}
       steps {
         echo "build stage"
-        sh ". $IDF_PATH/esp/esp-idf/export.sh"
+        sh "sudo . $IDF_PATH/esp/esp-idf/export.sh"
         sh 'idf.py set-target esp32'
         sh 'idf.py build'
       }
