@@ -10,8 +10,8 @@ pipeline {
       agent {label 'controller'}
       steps {
         echo "build stage"
-        sh "chmod +x /home/kevin/esp/esp-idf/export.sh"
-        sh '. $IDF_PATH/export.sh'
+        sh "chmod 777 /home/kevin/esp/esp-idf/export.sh"
+        sh ". $IDF_PATH/export.sh"
         sh 'idf.py set-target esp32'
         sh 'idf.py build'
       }
