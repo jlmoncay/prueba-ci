@@ -1,29 +1,25 @@
 pipeline {
   agent none
-   environment {
-       
-        IDF_PATH = "/home/kevin/esp/esp-idf"
-        
-    }
   stages {
     stage('build') {
       agent {label 'controller'}
       steps {
         echo "build stage"
-        sh "chmod 777 export.sh"
-        sh ". $IDF_PATH/export.sh"
-        sh 'idf.py set-target esp32'
-        sh 'idf.py build'
+        sh 'whoami'
       }
     }
     stage('test') {
+        agent {label 'controller'}
         steps {
             echo "test stage"
+            sh 'pwd'
         }
     }
     stage('deploy') {
+        agent {label 'controller'}
         steps {
             echo "deploy stage"
+            sh 'hostname -I'
         }
     }
   }
