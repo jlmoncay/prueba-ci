@@ -2,7 +2,7 @@ pipeline {
   agent none
    environment {
        
-        IDF_PATH = "$HOME/esp/esp-idf"
+        IDF_PATH = "/home/kevin/esp/esp-idf"
         
     }
   stages {
