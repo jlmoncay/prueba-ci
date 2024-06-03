@@ -6,6 +6,7 @@ pipeline {
       steps {
         echo "build stage"
         sh 'whoami'
+        sh 'pwd'
         echo 'before setting export.sh'
         sh ". /home/kevin/esp/esp-idf/export.sh"
         echo 'after setting export.sh'
