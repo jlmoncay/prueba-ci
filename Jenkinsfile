@@ -7,6 +7,7 @@ pipeline {
     }
   stages {
     stage('build') {
+      agent {label 'controller'}
       steps {
         echo "build stage"
         sh '. $IDF_PATH/export.sh'
