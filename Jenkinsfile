@@ -4,11 +4,12 @@ pipeline {
     stage('build') {
       steps {
         echo "build stage"
-        sh '/home/kevin/Escritorio/hello.sh'
-        
+        sh '''
+        /home/kevin/Escritorio/hello.sh'
+        '''
 
 
-        
+
       }
     }
     stage('test') {
