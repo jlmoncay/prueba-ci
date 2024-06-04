@@ -1,5 +1,8 @@
 pipeline {
   agent {label 'controller'}
+   environment {
+       ESP_PATH = "/home/kevin/esp/esp-idf"
+     }
   stages {
     stage('build') {
       steps {
@@ -7,7 +10,9 @@ pipeline {
         echo 'before setting export.sh'
         
         sh '''
-        cd /home/kevin/esp/esp-idf
+        #!/bin/bash
+        cd "/${ESP_PATH}"
+        
         . export.sh
         idf.py set-target esp32
         idf.py build
