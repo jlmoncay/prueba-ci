@@ -11,7 +11,7 @@ pipeline {
         
         sh '''
         #!/bin/bash
-        cd "/${ESP_PATH}"
+        cd "${ESP_PATH}"
         
         . export.sh
         idf.py set-target esp32
