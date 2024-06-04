@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo "build stage"
         sh '''
-        /home/kevin/Escritorio/hello.sh'
+        /home/kevin/Escritorio/hello.sh
         '''
 
 
