@@ -4,14 +4,15 @@ pipeline {
     stage('build') {
       steps {
         echo "build stage"
+        echo 'before setting export.sh'
+        
         sh '''
-        #!/bin/bash
-
-        echo Hello World
+        . /home/kevin/esp/esp-idf/export.sh
+        idf.py set-target esp32
+        idf.py build
         '''
-
-
-
+      
+        echo 'after setting export.sh'
       }
     }
     stage('test') {
