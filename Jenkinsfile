@@ -6,6 +6,9 @@ pipeline {
         echo "build stage"
         sh '/home/kevin/Escritorio/hello.sh'
         
+
+
+        
       }
     }
     stage('test') {
