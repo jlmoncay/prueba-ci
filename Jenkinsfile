@@ -8,7 +8,7 @@ pipeline {
         agent {
             docker { 
                 image 'espressif/idf:v4.4.2'
-                args '-v ${env.WORKSPACE}/project-cache:/opt/esp'
+                args '-v /home/kevin/local-agents/workspace/new-pipeline/project-cache:/opt/esp'
             }
         }
         steps {
