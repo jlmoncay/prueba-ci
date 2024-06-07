@@ -1,7 +1,7 @@
 pipeline {
   agent none
   environment {
-    IDF_PATH = '/opt/esp/idf'
+        IDF_PATH = '/home/kevin/local-agents/workspace/new-pipeline/project-cache/idf'
   }
   stages {
     stage('build') {
