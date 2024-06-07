@@ -7,7 +7,7 @@ pipeline {
     stage('build') {
         agent {
             docker { 
-                image 'espressif/idf:v4.4.2' 
+                image 'espressif/idf:release-v4.3' 
                 args '-v $WORKSPACE/project-cache:/opt/esp'
             }
         }
