@@ -1,5 +1,8 @@
 pipeline {
   agent none
+  environment {
+    IDF_PATH = '/opt/esp/idf'
+  }
   stages {
     stage('build') {
         agent {
@@ -8,7 +11,10 @@ pipeline {
             }
         }
         steps {
-            sh 'idf.py build'
+            sh '''
+                . ${IDF_PATH}/export.sh
+                idf.py build
+            '''
         }
     }
     stage('test') {
