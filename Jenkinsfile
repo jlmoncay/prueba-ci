@@ -1,14 +1,13 @@
 pipeline {
   agent none
   environment {
-        IDF_PATH = '/home/kevin/local-agents/workspace/new-pipeline/project-cache/idf'
+    IDF_PATH = '/opt/esp/idf'
   }
   stages {
     stage('build') {
         agent {
             docker { 
                 image 'espressif/idf:v4.4.2'
-                args '-v /home/kevin/local-agents/workspace/new-pipeline/project-cache:/opt/esp'
             }
         }
         steps {
