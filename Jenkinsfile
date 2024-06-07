@@ -7,13 +7,12 @@ pipeline {
     stage('build') {
         agent {
             docker { 
-                image 'espressif/idf:release-v4.3' 
-                
+                image 'espressif/idf:v4.4.2' 
             }
         }
         steps {
             sh '''
-                . $IDF_PATH/export.sh
+                . ${IDF_PATH}/export.sh
                 idf.py set-target esp32
                 idf.py build
             '''
