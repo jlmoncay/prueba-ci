@@ -1,20 +1,12 @@
 pipeline {
   agent none
-  environment {
-    IDF_PATH = '/opt/esp/idf'
-  }
   stages {
     stage('build') {
         agent {
-            docker { 
-                image 'espressif/idf:latest'
-            }
+            docker { image 'espressif/idf:v4.4.2' }
         }
         steps {
-            sh '''
-                . ${IDF_PATH}/export.sh
-                idf.py build
-            '''
+            sh 'idf.py build'
         }
     }
     stage('test') {
