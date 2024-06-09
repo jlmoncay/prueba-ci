@@ -5,7 +5,7 @@ pipeline {
         agent {
             docker { 
                 image 'espressif/idf:v4.4.2' 
-                args '-v $HOME/local-agents/new-local-agent/workspace/new-pipeline:/opt/esp/idf'
+                args '-v /home/kevin/local-agents/new-local-agent/workspace/new-pipeline:/opt/esp/idf'
             }
         }
         steps {
