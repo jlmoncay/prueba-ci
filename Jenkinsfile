@@ -4,7 +4,7 @@ pipeline {
     stage('build') {
         agent {label 'lagent1'}
         steps {
-          sh 'docker run --rm -v $WORKSPACE:/project -w /project espressif/idf:v4.4.2 idf.py build'
+          sh 'docker run --rm -v $WORKSPACE/new-pipeline:/project -w /project espressif/idf:v4.4.2 idf.py build'
         }
     }
     stage('test') {
