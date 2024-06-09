@@ -3,10 +3,7 @@ pipeline {
   stages {
     stage('build') {
         agent {
-            docker { 
-                image 'espressif/idf:v4.4.2'
-                args '-v $PWD:/project'
-            }
+            docker { image 'espressif/idf:v4.4.2' }
         }
         steps {
             sh '''
