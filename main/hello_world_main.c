@@ -15,9 +15,7 @@
 
 void app_main(void)
 {
-    printf("Hello world!\n +
-        Hello world! 2\n +
-        Hello world! 3\n");
+    printf("Hello Jorge!\n");
 
     /* Print chip information */
     esp_chip_info_t chip_info;
