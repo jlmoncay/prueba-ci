@@ -3,7 +3,10 @@ pipeline {
   stages {
     stage('build') {
         agent {
-            docker { image 'espressif/idf:v4.4.2' }
+            docker { 
+                image 'espressif/idf:v4.4.2' 
+                args '-v $HOME/local-agents/new-local-agent/workspace/new-pipeline:/opt/esp/idf'
+            }
         }
         steps {
             sh 'idf.py build'
