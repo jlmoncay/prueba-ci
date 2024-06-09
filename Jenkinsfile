@@ -8,7 +8,7 @@ pipeline {
         steps {
             sh '''
             #!/bin/bash
-            . /opt/esp/idf/esp/esp-idf/entrypoint.sh
+            . /opt/esp/idf/entrypoint.sh
             idf.py build
             '''
         }
