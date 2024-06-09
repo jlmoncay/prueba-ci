@@ -8,7 +8,10 @@ pipeline {
             }
         }
         steps {
-            sh 'idf.py build'
+            sh '''
+            #!/bin/bash
+            idf.py build
+            '''
         }
     }
     stage('test') {
