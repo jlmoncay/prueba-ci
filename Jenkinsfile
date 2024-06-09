@@ -2,16 +2,9 @@ pipeline {
   agent none
   stages {
     stage('build') {
-        agent {
-            docker { image 'espressif/idf:v4.4.2'
-                args '--entrypoint=""'
-             }
-        }
+        agent {label 'lagent1'}
         steps {
-            sh'''
-                . /opt/esp/entrypoint.sh 
-                idf.py build
-            '''
+          sh 'docker run --rm -v $WORKSPACE:/project -w /project espressif/idf:v4.4.2 idf.py build'
         }
     }
     stage('test') {
