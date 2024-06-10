@@ -11,6 +11,7 @@ pipeline {
 
     stage('tarea-agente1') {
         agent {label 'agent1'}
+        options { skipDefaultCheckout() }
         steps {
             dir("build-binaries") {
                 unstash "build-binaries"
