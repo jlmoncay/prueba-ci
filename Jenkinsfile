@@ -12,9 +12,7 @@ pipeline {
     stage('tarea-agente1') {
         agent {label 'agent1'}
         steps {
-            dir("build-binaries") {
-                unstash "build-binaries"
-            }
+           unstash "build-binaries"
         }
     }
   }
