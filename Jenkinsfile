@@ -18,5 +18,18 @@ pipeline {
             }
         }
     }
+
+    stage('load-bin-and-test-rbagent1') {
+        agent {label 'agent1'}
+        options { skipDefaultCheckout() }
+        steps {
+            sh 'load binaries to do something on the raspberry pi'
+        }
+        post {
+            success {
+                sh 'Running tests'
+            }
+        }
+    }
   }
 }
