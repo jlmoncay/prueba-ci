@@ -8,7 +8,7 @@ pipeline {
         }
     }
 
-    stage {
+    stage('tarea-agente1') {
         agent {label 'agent1'}
         steps {
             sh 'whoami'
