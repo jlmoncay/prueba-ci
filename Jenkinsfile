@@ -9,7 +9,7 @@ pipeline {
         }
     }
 
-    stage('tarea-agente1') {
+    stage('tarea-rbagente') {
         agent {label 'rbagent'}
         options { skipDefaultCheckout() }
         steps {
