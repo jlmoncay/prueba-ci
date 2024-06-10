@@ -5,6 +5,7 @@ pipeline {
         agent {label 'lagent1'}
         steps {
           sh 'docker run --rm -v $WORKSPACE:/project -w /project espressif/idf:v4.4.2 idf.py build'
+          archiveArtifacts artifacts: 'build/*, sdkconfig', allowEmptyArchive: true, onlyIfSuccessful: true
         }
     }
 
