@@ -5,17 +5,19 @@ pipeline {
         agent {label 'lagent1'}
         steps {
           sh 'docker run --rm -v $WORKSPACE:/project -w /project espressif/idf:v4.4.2 idf.py build'
-          archiveArtifacts artifacts: 'build/*, sdkconfig', allowEmptyArchive: true, onlyIfSuccessful: true
+          stash name: "build-binaries", includes: "build/*, sdkconfig"
         }
     }
 
     stage('tarea-agente1') {
         agent {label 'agent1'}
         steps {
-            sh 'echo Antes de copiar los archivos'
-            copyArtifacts projectName: 'new-pipeline', selector: lastSuccessful(), filter: 'build/**, sdkconfig', target: 'archivos-copiados/'
-            sh 'echo Archivos copiados con éxito'
-            sh 'ls -l archivos-copiados/'
+            dir("build-binaries") {
+                unstash "build-binaries"
+            }
+            sh 'echo Antes de almacenar los archivos'
+            archiveArtifacts artifacts: 'build-binaries/build/*, build-binaries/sdkconfig', allowEmptyArchive: true, onlyIfSuccessful: true
+            sh 'echo Archivos almacenados con éxito'
         }
     }
   }
