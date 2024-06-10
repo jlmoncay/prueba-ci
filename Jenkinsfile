@@ -10,7 +10,7 @@ pipeline {
     }
 
     stage('tarea-agente1') {
-        agent {label 'agent1'}
+        agent {label 'rbagent'}
         options { skipDefaultCheckout() }
         steps {
             unstash "build-binaries"
@@ -19,7 +19,7 @@ pipeline {
     }
 
     stage('load-bin-and-test-rbagent1') {
-        agent {label 'agent1'}
+        agent {label 'rbagent'}
         options { skipDefaultCheckout() }
         steps {
             sh 'echo load binaries to do something on the raspberry pi'
