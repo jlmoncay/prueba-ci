@@ -12,11 +12,10 @@ pipeline {
     stage('tarea-agente1') {
         agent {label 'agent1'}
         steps {
-            sh 'mkdir archivos-copiados'
             sh 'echo Antes de copiar los archivos'
             copyArtifacts projectName: 'new-pipeline', selector: lastSuccessful(), filter: 'build/**, sdkconfig', target: 'archivos-copiados/'
             sh 'echo Archivos copiados con éxito'
-            sh 'ls archivos-copiados/'
+            sh 'ls -l archivos-copiados/'
         }
     }
   }
