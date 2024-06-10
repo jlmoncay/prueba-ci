@@ -16,7 +16,7 @@ pipeline {
                 unstash "build-binaries"
             }
             sh 'echo Antes de almacenar los archivos'
-            archiveArtifacts artifacts: 'build-binaries/build/*, build-binaries/sdkconfig', allowEmptyArchive: true, onlyIfSuccessful: true
+            
             sh 'echo Archivos almacenados con éxito'
         }
     }
