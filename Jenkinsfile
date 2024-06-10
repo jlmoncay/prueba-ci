@@ -7,5 +7,12 @@ pipeline {
           sh 'docker run --rm -v $WORKSPACE:/project -w /project espressif/idf:v4.4.2 idf.py build'
         }
     }
+
+    stage {
+        agent {label 'agent1'}
+        steps {
+            sh 'whoami'
+        }
+    }
   }
 }
